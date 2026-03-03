@@ -31,8 +31,8 @@ class Program {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("=====================================");
-            Console.WriteLine("     ROBLOX VS. BOTS (MvM Edition)   ");
-            Console.WriteLine("       СТАТУС: ЧЕЛОВЕК В ИГРЕ        ");
+            Console.WriteLine("     ROBLOX DDOS
+            Console.WriteLine("            
             Console.WriteLine("=====================================");
             Console.ResetColor();
 

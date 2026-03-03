@@ -1,0 +1,56 @@
+Скачай termux она на андроид и может на ios но не помню
+
+1. Обнови пакеты: `pkg update && pkg upgrade`
+
+2. Установи необходимые инструменты (Mono для C#, Git и API): `pkg install mono git termux-api android-tools -y`
+
+3. Склонируй репозиторий (замени ссылку на свою): `git clone [подозрительная ссылка удалена]`
+
+4. Перейди в папку проекта: `cd Roblox-vs-Bots`
+
+5. Скомпилируй код: `mcs Program.cs`
+
+6. Запусти проект: `mono Program.exe`
+
+И ето скачайте pkg install termux-api -y
+
+
+
+cat << 'EOF' > Program.cs
+using System;
+using System.IO;
+using System.Diagnostics;
+
+class Program {
+    static void Main() {
+        Random rnd = new Random();
+        while (true) {
+            string user = "Mann_" + rnd.Next(100, 999) + "BotHunter";
+            string pass = "Destroyer" + rnd.Next(1000, 9999) + "!";
+            
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("=====================================");
+            Console.WriteLine("     ROBLOX VS. BOTS (MvM Edition)   ");
+            Console.WriteLine("       СТАТУС: ЧЕЛОВЕК В ИГРЕ        ");
+            Console.WriteLine("=====================================");
+            Console.ResetColor();
+
+            Console.WriteLine($"\n[Target] НИК ПОДГОТОВЛЕН: {user}");
+            Process.Start("sh", $"-c \"echo -n '{user}' | termux-clipboard-set\""); // Копируем ник
+            Process.Start("termux-open-url", "https://www.roblox.com/signup"); // Открываем цель
+
+            Console.WriteLine("\n[!] ДЕЙСТВИЕ: Вставь НИК и нажми ENTER здесь для ПАРОЛЯ.");
+            Console.ReadLine();
+
+            Process.Start("sh", $"-c \"echo -n '{pass}' | termux-clipboard-set\""); // Копируем пароль
+            Console.WriteLine("[!] ДЕЙСТВИЕ: Пароль скопирован! Завершай атаку.");
+            
+            File.AppendAllText("accounts.txt", $"{user}:{pass}\n"); // Сохраняем трофеи
+            
+            Console.WriteLine("\n[?] Бот повержен? Нажми ENTER для следующей волны...");
+            Console.ReadLine();
+        }
+    }
+}
+EOF
